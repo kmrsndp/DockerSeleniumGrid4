@@ -22,9 +22,7 @@ public class DockerSeleniumGridTest {
 
     @Parameters("browser")
     @BeforeTest
-    public void setUpBrowser(String browserType) throws IOException, InterruptedException {
-
-//        startDockerGrid();
+    public void setUpBrowser(String browserType) throws IOException {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -52,26 +50,10 @@ public class DockerSeleniumGridTest {
 
 
     @AfterTest
-    public void teardown() throws IOException, InterruptedException {
+    public void teardown(){
         System.out.println("Test execution finished");
         driver.quit();
-
-//        stopDockerGrid();
     }
-
-//    @BeforeSuite
-//    void startDockerGrid() throws IOException, InterruptedException {
-//        Runtime.getRuntime().exec("cmd /c start start_docker.bat");
-//        Thread.sleep(15000);
-//    }
-//
-//    @AfterSuite
-//    void stopDockerGrid() throws IOException, InterruptedException {
-//        Runtime.getRuntime().exec("cmd /c start stop_docker.bat");
-//        Thread.sleep(15000);
-//
-//        Runtime.getRuntime().exec("taskKill /f /im cmd.exe"); //closes cmd
-//    }
 
 
 
